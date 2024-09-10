@@ -16,5 +16,17 @@ Resultado= Condicion1 != Condicion2
 
 print(f"Exactamente una de las condiciones es verdadera {Resultado}")
 
+#Verifique si x es negativo, y es positivo y z es cero:
+
+x, y, z = -3, 5, 0
+
+Negativo = x<0
+Positivo = y>0
+es_igual = z==0
+
+print(f"x es negativo {Negativo}")
+print(f"y es positivo {Positivo}")
+print(f"z es igual a cero {es_igual}")
+
 
 
