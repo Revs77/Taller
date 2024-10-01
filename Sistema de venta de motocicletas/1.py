@@ -14,7 +14,7 @@ def calculate_day_discount(day, is_holiday):
         return 0.25
     elif day.lower() == "martes":
         return 0.12
-    elif day.lower() == "sabado":
+    elif day.lower() == "sábado":
         return 0.18
     else:
         return 0
@@ -44,7 +44,7 @@ def get_brand():
 def get_is_holiday():
     while True:
         is_holiday = input("¿El día de la compra es feriado? (sí/no): ").lower()
-        if is_holiday == "sí" or "si":
+        if is_holiday == "sí" or is_holiday=="si":
             return True
         elif is_holiday == "no":
             return False
@@ -55,7 +55,7 @@ def get_is_holiday():
 def get_day():
     while True:
         day = input("Ingrese el día de la semana de la compra: ")
-        if day.lower() in ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"]:
+        if day.lower() in ["lunes", "martes", "miércoles","miercoles", "jueves", "viernes", "sábado", "domingo"]:
             return day
         else:
             print("El día debe ser uno de los siguientes: lunes, martes, miércoles, jueves, viernes, sábado, domingo")
