@@ -1,51 +1,90 @@
 #Sistema de venta de motos con promociones
-def calcular_descuento_base(marca, precio_base):
-    descuentos_marca = {
+def calculate_brand_discount(brand, base_price):
+    brand_discounts = {
         "Honda": 0.05,
         "Yamaha": 0.08,
         "Suzuki": 0.10,
         "Otra": 0.02
     }
-    return precio_base * descuentos_marca.get(marca, 0)
+    return base_price * brand_discounts.get(brand, 0)
 
-def calcular_descuento_dia(dia_semana, es_feriado):
-    if es_feriado:
+
+def calculate_day_discount(day, is_holiday):
+    if is_holiday:
         return 0.25
-    elif dia_semana.lower() == "martes":
+    elif day.lower() == "martes":
         return 0.12
-    elif dia_semana.lower() == "sábado":
+    elif day.lower() == "sabado":
         return 0.18
     else:
         return 0
 
+
+def get_base_price():
+    while True:
+        try:
+            base_price = float(input("Ingrese el precio base de la motocicleta: "))
+            if base_price <= 0:
+                print("El precio base debe ser mayor que cero.")
+            else:
+                return base_price
+        except ValueError:
+            print("El precio base debe ser un número válido.")
+
+
+def get_brand():
+    while True:
+        brand = input("Ingrese la marca de la motocicleta (Honda, Yamaha, Suzuki, Otra): ")
+        if brand in ["Honda", "Yamaha", "Suzuki", "Otra"]:
+            return brand
+        else:
+            print("La marca debe ser una de las siguientes: Honda, Yamaha, Suzuki, Otra")
+
+
+def get_is_holiday():
+    while True:
+        is_holiday = input("¿El día de la compra es feriado? (sí/no): ").lower()
+        if is_holiday == "sí" or "si":
+            return True
+        elif is_holiday == "no":
+            return False
+        else:
+            print("La respuesta debe ser sí o no")
+
+
+def get_day():
+    while True:
+        day = input("Ingrese el día de la semana de la compra: ")
+        if day.lower() in ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"]:
+            return day
+        else:
+            print("El día debe ser uno de los siguientes: lunes, martes, miércoles, jueves, viernes, sábado, domingo")
+
+
 def main():
-    precio_base = float(input("Ingrese el precio base de la motocicleta: "))
-    marca = input("Ingrese la marca de la motocicleta (Honda, Yamaha, Suzuki, Otra): ")
-    es_feriado = input("¿El día de la compra es feriado? (sí/no): ").lower() == "sí"
-    dia_semana = input("Ingrese el día de la semana de la compra: ")
+    base_price = get_base_price()
+    brand = get_brand()
+    is_holiday = get_is_holiday()
+    day = get_day()
 
-    # Calcular descuentos
-    descuento_marca = calcular_descuento_base(marca, precio_base)
-    descuento_dia = calcular_descuento_dia(dia_semana, es_feriado)
+    brand_discount = calculate_brand_discount(brand, base_price)
+    day_discount = calculate_day_discount(day, is_holiday)
 
-    # Total de descuento antes de aplicar el límite
-    total_descuento = descuento_marca + (descuento_dia * precio_base)
+    total_discount = brand_discount + (day_discount * base_price)
 
-    # Aplicar límite máximo de descuento
-    if total_descuento > 0.30 * precio_base:
-        total_descuento = 0.30 * precio_base
+    if total_discount > 0.30 * base_price:
+        total_discount = 0.30 * base_price
 
-    # Calcular precio final
-    precio_final = precio_base - total_descuento
-    ahorro_total = total_descuento
+    final_price = base_price - total_discount
+    total_savings = total_discount
 
-    # Mostrar resultados
     print("\n--- Resultados de la compra ---")
-    print(f"Precio base de la motocicleta: ${precio_base:.2f}")
-    print(f"Descuento por marca: ${descuento_marca:.2f}")
-    print(f"Descuento por día: ${descuento_dia * precio_base:.2f}")
-    print(f"Descuento total aplicado: ${ahorro_total:.2f}")
-    print(f"Precio final de la motocicleta: ${precio_final:.2f}")
+    print(f"Precio base de la motocicleta: ${base_price:.2f}")
+    print(f"Descuento por marca: ${brand_discount:.2f}")
+    print(f"Descuento por día: ${day_discount * base_price:.2f}")
+    print(f"Descuento total aplicado: ${total_savings:.2f}")
+    print(f"Precio final de la motocicleta: ${final_price:.2f}")
+
 
 if __name__ == "__main__":
     main()
