@@ -1,0 +1,47 @@
+[
+  {
+    "titulo": "You",
+    "autor": "Me",
+    "a\u00f1o": "2015",
+    "prestado": true,
+    "usuario": {
+      "nombre": "Jose",
+      "tarjeta_identidad": "2021"
+    },
+    "fecha_prestamo": "2024-10-07T00:02:49.621395",
+    "fecha_devolucion": "2024-10-12T00:02:49.621395"
+  },
+  {
+    "titulo": "Ayer",
+    "autor": "Me",
+    "a\u00f1o": "2019",
+    "prestado": true,
+    "usuario": {
+      "nombre": "Jose",
+      "tarjeta_identidad": "1012"
+    },
+    "fecha_prestamo": "2024-10-06T23:53:00.344243",
+    "fecha_devolucion": "2024-10-11T23:53:00.344243"
+  },
+  {
+    "titulo": "Amarillo",
+    "autor": "You",
+    "a\u00f1o": "2018",
+    "prestado": true,
+    "usuario": {
+      "nombre": "Maria",
+      "tarjeta_identidad": "2020"
+    },
+    "fecha_prestamo": "2024-10-06T23:54:09.713320",
+    "fecha_devolucion": "2024-10-11T23:54:09.713320"
+  },
+  {
+    "titulo": "Todos",
+    "autor": "You",
+    "a\u00f1o": "2017",
+    "prestado": false,
+    "usuario": null,
+    "fecha_prestamo": null,
+    "fecha_devolucion": null
+  }
+]

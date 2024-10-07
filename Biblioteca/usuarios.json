@@ -1,0 +1,14 @@
+[
+  {
+    "nombre": "Jose",
+    "tarjeta_identidad": "2021",
+    "penalizacion": null,
+    "fecha_penalizacion": null
+  },
+  {
+    "nombre": "Amarillo",
+    "tarjeta_identidad": "3029",
+    "penalizacion": null,
+    "fecha_penalizacion": null
+  }
+]
